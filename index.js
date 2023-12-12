@@ -19,6 +19,7 @@ const range2 = document.getElementById('range');
 const applySettingsButton = document.getElementById('savesettings');
 const toggleBgMusic = document.getElementById('toggleBgMusic');
 const stopBgMusicButton = document.getElementById('stopBgMusic');
+const volumeSlider = document.getElementById('volume');
 // const timeBox = document.getElementById('time');
 
 function regenerateVar() {
@@ -260,7 +261,19 @@ applySettingsButton.addEventListener('click', () => {
     backgroundMusicPlayer.stop();
   });
 
+// Add an 'input' event listener to the range slider
+volumeSlider.addEventListener('input', function() {
+  // Get the value of the range slider and convert it to a number between 0 and 1
+  const volume = volumeSlider.value / 100;
 
+  // Set the volume of each audio element
+  audioPlayer.correctSound.volume = volume;
+  audioPlayer.wrongSound.volume = volume;
+  audioPlayer.clickSound.volume = volume;
+  audioPlayer.tickSound.volume = volume;
+  audioPlayer.endGameSound.volume = volume;
+  backgroundMusicPlayer.audioElement.volume = volume;
+});
   
 window.addEventListener('load', () => {
   // Play a random background track when the page loads

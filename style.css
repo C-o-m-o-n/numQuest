@@ -120,3 +120,13 @@ button:disabled {
 .hidden {
   display: none;
 }
+
+/* Style for volume slider */
+.range-slider {
+  width: 75%;
+  background: #555;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
